@@ -1,1 +1,1 @@
-# ootcoding-project-training
+# bootcoding-project-training
