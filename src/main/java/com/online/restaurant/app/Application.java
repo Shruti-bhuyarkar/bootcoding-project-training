@@ -3,9 +3,7 @@ package com.online.restaurant.app;
 import com.online.restaurant.Customer;
 import com.online.restaurant.Order;
 import com.online.restaurant.Vendor;
-import com.online.restaurant.dao.CustomerDAO;
-import com.online.restaurant.dao.OrderMenuItem1DAO;
-import com.online.restaurant.dao.VendorDAO;
+import com.online.restaurant.dao.*;
 
 import java.util.Date;
 
@@ -67,9 +65,15 @@ public class Application {
         VendorDAO vendorDAO = new VendorDAO();
         vendorDAO.createTable();
 
-        OrderMenuItem1DAO ordermenuitem1DAO = new OrderMenuItem1DAO();
-        ordermenuitem1DAO.createTable();
 
+        OrderMenuItemDAO orderMenuItemDAO = new OrderMenuItemDAO();
+        orderMenuItemDAO.createTable();
+
+        OrderDAO orderDAO = new OrderDAO();
+        orderDAO.createTable();
+
+        MenuItemDAO menuItemDAO = new MenuItemDAO();
+        menuItemDAO.createTable();
 
 
 

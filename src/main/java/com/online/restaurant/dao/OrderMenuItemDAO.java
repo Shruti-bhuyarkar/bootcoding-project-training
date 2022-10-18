@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class OrderMenuItem1DAO {
-    public static final String TABLE_NAME="ordermenuitem1";
+public class OrderMenuItemDAO {
+    public static final String TABLE_NAME="app_order_menu_item";
 
     public void  createTable(){
         try{
@@ -19,6 +19,16 @@ public class OrderMenuItem1DAO {
             Statement stmt = con.createStatement();
             //4.
             String sql =" Select * from "+TABLE_NAME;
+            String query =" CREATE TABLE IF NOT EXISTS "+ TABLE_NAME
+                    + "( id bigint NOT NULL, "
+                    + " order_id bigint ,"
+                    + " quantity decimal,"
+                    + " menu_item varchar ,"
+                    + " total_price numeric ,"
+                    + " is_veg bool,"
+                    + " CONSTRAINT app_order_menu_item_pk PRIMARY KEY (id))";
+            System.out.println(" Create Table Query : " + query);
+            stmt.executeUpdate(query);
             ResultSet rs = stmt.executeQuery(sql);
             //5.
             while (rs.next()){
