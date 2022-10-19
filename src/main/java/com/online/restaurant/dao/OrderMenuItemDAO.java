@@ -8,14 +8,14 @@ import java.sql.Statement;
 public class OrderMenuItemDAO {
     public static final String TABLE_NAME="app_order_menu_item";
 
+    private  DAOService daoService;
+    public OrderMenuItemDAO(){
+        // inside constructor
+        daoService = new DAOService();}
     public void  createTable(){
         try{
-            //1. Load JDBC Driver
-            Class.forName("org.postgresql.Driver");
-            //2.
-            Connection con = DriverManager
-                    .getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","1003");
-// 3.
+      Connection con = daoService.getConnection();
+// 3.c
             Statement stmt = con.createStatement();
             //4.
             String sql =" Select * from "+TABLE_NAME;

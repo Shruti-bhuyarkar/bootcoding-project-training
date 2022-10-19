@@ -8,25 +8,28 @@ import java.sql.Statement;
 public class CustomerDAO {
     public static final String TABLE_NAME="app_customer";
 
+    private  DAOService daoService;
+    public  CustomerDAO(){
+        // inside constructor
+        daoService = new DAOService();
+    }
+
     public void  createTable(){
         try{
-            //1. Load JDBC Driver
-            Class.forName("org.postgresql.Driver");
-            //2.
-            Connection con = DriverManager
-                    .getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","1003");
+           Connection con = daoService.getConnection();
             // 3.
             Statement stmt = con.createStatement();
             //4.
             String sql =" Select * from "+TABLE_NAME;
-            String query =" CREATE TABLE IF NOT EXISTS "+ TABLE_NAME+ "( id bigint NOT NULL, "
-            + " name text ,"
-            + " address text ,"
-            + " phone_number bigint ,"
-            + " city text ,"
-            + " state text,"
-            + " email_id text,"
-            + " CONSTRAINT app_customer_pk PRIMARY KEY (id))";
+            String query =" CREATE TABLE IF NOT EXISTS "+ TABLE_NAME
+                    + "( id bigint NOT NULL, "
+                    + " name text ,"
+                    + " address text ,"
+                    + " phone_number bigint ,"
+                    + " city text ,"
+                    + " state text,"
+                    + " email_id text,"
+                    + " CONSTRAINT app_customer_pk PRIMARY KEY (id))";
 
             System.out.println(" Create Table Query : " + query);
             stmt.executeUpdate(query);
