@@ -44,6 +44,7 @@ public class VendorDAO {
                 System.out.println(" State = "+rs.getString("state"));
 
             }
+            con.close();
         }catch (Exception ex){
             ex.printStackTrace();
         }

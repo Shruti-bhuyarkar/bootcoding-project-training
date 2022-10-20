@@ -1,6 +1,6 @@
 package com.online.restaurant.dao;
+
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 public class OrderDAO {
@@ -40,6 +40,8 @@ public class OrderDAO {
                 System.out.println(" State = " + rs.getString("state"));
 
             }
+
+            con.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

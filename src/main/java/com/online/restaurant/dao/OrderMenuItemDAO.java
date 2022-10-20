@@ -1,7 +1,6 @@
 package com.online.restaurant.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -38,6 +37,7 @@ public class OrderMenuItemDAO {
                 System.out.println(" Total Price= "+rs.getString("total_price"));
 
             }
+            con.close();
         }catch (Exception ex){
             ex.printStackTrace();
         }

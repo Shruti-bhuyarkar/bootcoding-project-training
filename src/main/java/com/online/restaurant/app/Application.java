@@ -4,6 +4,8 @@ import com.online.restaurant.Customer;
 import com.online.restaurant.Order;
 import com.online.restaurant.Vendor;
 import com.online.restaurant.dao.*;
+import com.online.restaurant.service.CustomerService;
+import com.online.restaurant.utils.PhoneNumberGenerator;
 
 import java.util.Date;
 
@@ -24,7 +26,7 @@ public class Application {
         System.out.println("Address : "+ shruti.getAddress());
         System.out.println("State : "+ shruti.getState());
         System.out.println("Email-Id : "+shruti.getEmailid());
-        System.out.println("Phone : "+ shruti.getPhoneNumber()+"\n");
+        System.out.println("Phone : "+ shruti.getPhoneNumber(PhoneNumberGenerator.getPhoneNumber())+"\n");
 
         Vendor haldiram = new Vendor();
         haldiram.setName("Haldiram veg Restaurant");
@@ -75,6 +77,8 @@ public class Application {
         MenuItemDAO menuItemDAO = new MenuItemDAO();
         menuItemDAO.createTable();
 
+        CustomerService cs = new CustomerService();
+        cs.createDummyCustomers();
 
 
     }

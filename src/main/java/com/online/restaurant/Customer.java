@@ -2,13 +2,23 @@ package com.online.restaurant;
 
 public class Customer {
     // to declare a variale
+    private long customerId;
+
+    public long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(long customerId) {
+        this.customerId = customerId;
+    }
+
     private String name;//instance variavle
     private String address;//instance variavle
     private String city;//instance variavle
     private long phoneNumber;//instance variavle
 
-    public long getPhoneNumber() {
-        return phoneNumber;
+    public long getPhoneNumber(int phoneNumber) {
+        return this.phoneNumber;
     }
 
     private String state;//instance variavle
@@ -63,5 +73,9 @@ public class Customer {
 
     public void setEmailid(String emailid) {
         this.emailid = emailid;
+    }
+
+    public long getPhoneNumber() {
+        return phoneNumber;
     }
 }
