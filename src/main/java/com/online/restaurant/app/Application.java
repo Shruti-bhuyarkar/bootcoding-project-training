@@ -3,7 +3,6 @@ package com.online.restaurant.app;
 import com.online.restaurant.Customer;
 import com.online.restaurant.Order;
 import com.online.restaurant.Vendor;
-import com.online.restaurant.dao.*;
 import com.online.restaurant.service.CustomerService;
 import com.online.restaurant.utils.PhoneNumberGenerator;
 
@@ -61,21 +60,7 @@ public class Application {
         System.out.println("Vendor :"+order.getVendor());
         System.out.println("Total Amount :"+order.getTotalAmount()+"\n");
 
-        CustomerDAO customerDAO = new CustomerDAO();
-         customerDAO.createTable();
 
-        VendorDAO vendorDAO = new VendorDAO();
-        vendorDAO.createTable();
-
-
-        OrderMenuItemDAO orderMenuItemDAO = new OrderMenuItemDAO();
-        orderMenuItemDAO.createTable();
-
-        OrderDAO orderDAO = new OrderDAO();
-        orderDAO.createTable();
-
-        MenuItemDAO menuItemDAO = new MenuItemDAO();
-        menuItemDAO.createTable();
 
         CustomerService cs = new CustomerService();
         cs.createDummyCustomers();
